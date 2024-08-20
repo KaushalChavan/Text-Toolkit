@@ -31,7 +31,7 @@ const toggleMode = () =>{
    
     if(mode === 'light'){
       setMode('dark');
-      document.body.style.background = '#001f48'  // #062247  // #3c3e40  // #042743
+      document.body.style.background = '#001f48'
       showAlert("Dark Mode has been enabled", "success")
     }
     else{
@@ -44,7 +44,7 @@ const toggleMode = () =>{
   return (
     <>
     <Router>
-    <Navbar title='TextUtils' mode={mode} toggleMode={toggleMode}/>
+    <Navbar title='Text Toolkit' mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert}/>
     <div className="container">
     <Routes>

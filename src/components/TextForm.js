@@ -74,26 +74,28 @@ export default function TextForm(props) {
     
   return (
     <>
-    <div className='container my-5' style={{color: props.mode==='light'?'black':'white'}} >
+    <div className='container my-3' style={{color: props.mode==='light'?'black':'white'}} >
       <h3>{props.heading}</h3>
       <div className="mb-3 my-4">
       <textarea className="form-control border border-2" style={{background: props.mode==='light'?'white':'#212529',color: props.mode==='light'?'black':'white'}} value={text} onChange={handleOnChange} id='myBox' rows="6">
       </textarea>
       </div>
-      <button className='btn btn-primary' onClick={upClick}>Convert To Uppercase</button>
-      <button className='btn btn-primary mx-2 my-2' onClick={lowClick}>Convert To Lowercase</button>
-      <button className='btn btn-primary mx-2 my-2' onClick={clearClick}>Clear</button>
-      <button className='btn btn-primary mx-2 my-2' onClick={copyClick}>Copy</button>
-      <button className='btn btn-primary mx-2 my-2' onClick={extraSpaces}>Remove Extra Spaces</button>
+      <div>
+      <button className='btn btn-success mx-2 my-2' onClick={upClick}>Convert To Uppercase</button>
+      <button className='btn btn-success mx-2 my-2' onClick={lowClick}>Convert To Lowercase</button>
+      <button className='btn btn-success mx-2 my-2' onClick={clearClick}>Clear</button>
+      <button className='btn btn-success mx-2 my-2' onClick={copyClick}>Copy</button>
+      <button className='btn btn-success mx-2 my-2' onClick={extraSpaces}>Remove Extra Spaces</button>
+      </div>
     </div>
 
-    <div className="container my-3" style={{color: props.mode==='light'?'black':'white'}}>
-       <h3>Your Text Summary :</h3>
-       <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
-       <p>{0.08 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p>
+    <div className="container my-3 shadow-lg p-5" style={{color: props.mode==='light'?'black':'white'}}>
+       <h3 className='fw-bold'>Your Text Summary :</h3>
+       <p className='text-danger'>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+       {/* <p>{0.08 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minutes read</p> */}
        <br />
-       <h3>Preview :</h3>
-       <p>{text.length>0?text:"Nothing to preview!"}</p>
+       <h3 className='fw-bold'>Preview :</h3>
+       <p style={{color: props.mode==='light'?'blue':'white'}}>{text.length>0?text:"Nothing to preview!"}</p>
     </div>
     </>
   )
